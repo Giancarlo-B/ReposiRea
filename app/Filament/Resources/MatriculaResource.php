@@ -70,6 +70,7 @@ class MatriculaResource extends Resource
             Forms\Components\DatePicker::make('fechaMatricula')
                 ->label('Fecha de Matrícula')
                 ->default(now())
+                ->maxDate(now())
                 ->required(),
 
             // Repetidor para los cursos matriculados
@@ -127,7 +128,7 @@ class MatriculaResource extends Resource
         ->actions([
             Tables\Actions\EditAction::make(),
             Tables\Actions\ViewAction::make(),
-            
+
         ])
         ->bulkActions([
             Tables\Actions\DeleteBulkAction::make(),

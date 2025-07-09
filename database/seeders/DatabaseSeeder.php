@@ -16,14 +16,13 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
         $this->call([
-        FacultadSeeder::class,
-        CampoInteresSeeder::class,
-        EstudianteSeeder::class,
-]);
+            FacultadSeeder::class,
+            CampoInteresSeeder::class,
+            EstudianteSeeder::class,
+        ]);
+
+        // Crear 100 estudiantes
+        \App\Models\Estudiante::factory(100)->create();
     }
 }
