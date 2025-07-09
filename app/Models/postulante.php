@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class postulante extends Model
+class Postulante extends Model
 {
-    //
+    protected $casts = [
+    'carreras_intereses' => 'array',
+    ];
 }
