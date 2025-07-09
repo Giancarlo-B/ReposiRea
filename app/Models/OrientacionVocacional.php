@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrientacionVocacional extends Model
 {
-    protected $fillable =['habilidadDestacada','motivacion','cursoSecundaria','fechaInicio','fechaFinalizacion','interpretacionFinal','estado'];
+    protected $fillable =['fechaInicio','estado'];
     public function campoInteres(){
         return $this->belongsTo(CampoInteres::class,'idCampoInteres','id');
     }

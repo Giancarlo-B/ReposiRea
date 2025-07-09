@@ -23,7 +23,37 @@ class PostulanteResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('names')
+                    ->label('Nombres')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('apellidos')
+                    ->label('Apellidos')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Textarea::make('descripcion')
+                    ->label('Descripción')
+                    ->required(),
+                Forms\Components\TextInput::make('habilidad_destacada')
+                    ->label('Habilidad Destacada')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('motivacion')
+                    ->label('Motivación')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('curso_secundaria')
+                    ->label('Curso Secundaria')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Textarea::make('interpretacion_final')
+                    ->label('Interpretación Final')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('carreras_intereses')
+                    ->label('Carreras de Interés')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -32,6 +62,12 @@ class PostulanteResource extends Resource
         return $table
             ->columns([
                 //
+                Tables\Columns\TextColumn::make('id')
+                    ->label('ID'),
+                Tables\Columns\TextColumn::make('names')
+                    ->label('Nombres'),
+                Tables\Columns\TextColumn::make('apellidos')
+                    ->label('Apellidos'),
             ])
             ->filters([
                 //
@@ -39,6 +75,7 @@ class PostulanteResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

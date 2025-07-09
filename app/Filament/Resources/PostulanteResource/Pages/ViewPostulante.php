@@ -16,4 +16,10 @@ class ViewPostulante extends ViewRecord
             Actions\EditAction::make(),
         ];
     }
+    protected function getViewData(): array
+    {
+        return [
+            Actions\EditAction::make(),
+        ];
+    }
 }
