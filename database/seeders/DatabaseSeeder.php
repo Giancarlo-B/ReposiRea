@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             FacultadSeeder::class,
             CampoInteresSeeder::class,
             EstudianteSeeder::class,
+            CarreraSeeder::class,
         ]);
 
         // Crear 100 estudiantes

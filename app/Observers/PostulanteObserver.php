@@ -4,8 +4,8 @@ namespace App\Observers;
 
 use App\Models\Postulante;
 use App\Models\Estudiante;
-use App\Models\OrientacionVocacional;
 use App\Models\CampoInteres;
+use App\Models\OrientacionVocacional;
 use Carbon\Carbon; // Para manejar fechas
 
 class PostulanteObserver
@@ -30,16 +30,22 @@ class PostulanteObserver
             'genero' => 'o', // Género por defecto 'otro'
             'telefono' => null, // Asumimos null
             'email' => null, // Asumimos null, si necesitas un email único, asegúrate de que el postulante lo tenga
+            // Si mantuviste la columna 'postulante_id' en 'estudiantes', puedes asignarla aquí:
+            // 'postulante_id' => $postulante->id,
         ]);
 
         // 2. Crear registros en la tabla 'orientacion_vocacionals'
         // Esto se hace por cada carrera de interés del postulante.
         // 'carreras_intereses' es un JSON array, por eso se itera.
-        if (is_array($postulante->carreras_intereses)) {
-            foreach ($postulante->carreras_intereses as $carreraInteresNombre) {
+        $carreras = $postulante->carreras_intereses;
+        if (is_string($carreras)) {
+            $carreras = json_decode($carreras, true);
+        }
+        if (is_array($carreras)) {
+            foreach ($carreras as $carreraInteresNombre) {
                 // Buscar o crear el CampoInteres
                 $campoInteres = CampoInteres::firstOrCreate(
-                    ['nombre' => $carreraInteresNombre]
+                    ['nombCampoInteres' => $carreraInteresNombre]
                 );
 
                 // Crear la OrientacionVocacional

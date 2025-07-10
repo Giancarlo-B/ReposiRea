@@ -41,23 +41,8 @@ class OrientacionVocacionalResource extends Resource
                 Forms\Components\Select::make('idEstudiante')
                     ->relationship('estudiante','nombres')
                     ->required(),
-                Forms\Components\TextInput::make('habilidadDestacada')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('motivacion')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('cursoSecundaria')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\DateTimePicker::make('fechaInicio')
+                Forms\Components\DateTimePicker::make('fecha_inicio')
                     ->maxDate(now())
-                    ->required(),
-                Forms\Components\DateTimePicker::make('fechaFinalizacion')
-                    ->maxDate(now())
-                    ->required(),
-                Forms\Components\TextInput::make('interpretacionFinal')
-                    ->maxLength(255)
                     ->required(),
                 Forms\Components\Select::make('estado')
                     ->options([
@@ -78,26 +63,17 @@ class OrientacionVocacionalResource extends Resource
                 Tables\Columns\TextColumn::make('estudiante.nombres')
                     ->label('Estudiante')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('habilidadDestacada')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('motivacion')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('cursoSecundaria')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('fechaInicio')
+                Tables\Columns\TextColumn::make('fecha_inicio')
                     ->dateTime()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('fechaFinalizacion')
-                    ->dateTime()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('interpretacionFinal')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('estado'),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('Fecha de Creacion')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label('Fecha de Actualizacion')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
