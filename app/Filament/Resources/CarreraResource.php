@@ -38,6 +38,9 @@ class CarreraResource extends Resource
                     ->required()
                     ->minValue(1)
                     ->maxValue(10),
+                Forms\Components\TextInput::make('precioMatricula')
+                    ->label('Precio de Matricula')
+                    ->required(),
                 Forms\Components\Select::make('idFacultad')
                     ->label('Facultad')
                     ->relationship('facultad', 'nombFacultad')

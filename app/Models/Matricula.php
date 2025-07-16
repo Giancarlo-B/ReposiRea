@@ -12,7 +12,6 @@ class Matricula extends Model
     {
         return $this->belongsTo(Estudiante::class, 'idEstudiante', 'id');
     }
-
     public function carrera()
     {
         return $this->belongsTo(Carrera::class, 'idCarrera', 'id');

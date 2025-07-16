@@ -42,7 +42,7 @@ class EstudianteResource extends Resource
                 ->maxLength(8)
                 ->minLength(8),
 
-            Forms\Components\DatePicker::make('fecha_nacimiento')
+            Forms\Components\DatePicker::make('fechaNacimiento')
                 ->label('Fecha de Nacimiento')
                 ->maxDate(now()->subYears(17)) // mínimo 17 años
                 ->required(),
@@ -85,7 +85,7 @@ class EstudianteResource extends Resource
                 ->label('DNI')
                 ->searchable(),
 
-            Tables\Columns\TextColumn::make('fecha_nacimiento')
+            Tables\Columns\TextColumn::make('fechaNacimiento')
                 ->label('Fecha de Nacimiento')
                 ->date()
                 ->sortable(),

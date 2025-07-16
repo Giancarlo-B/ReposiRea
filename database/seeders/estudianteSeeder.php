@@ -20,7 +20,7 @@ class estudianteSeeder extends Seeder
             Estudiante::create([
                 'nombres' => $faker->firstName,
                 'apellidos' => $faker->lastName,
-                'fecha_nacimiento' => $faker->date('Y-m-d', '-18 years'),
+                'fechaNacimiento' => $faker->date('Y-m-d', '-18 years'),
                 'genero' => $faker->randomElement(['M', 'F']),
                 'dni' => $faker->unique()->numerify('########'),
                 'email' => $faker->unique()->safeEmail,

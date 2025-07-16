@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('idEstudiante')->constrained('estudiantes');
             $table->foreignId('idCarrera')->constrained('carreras');
             $table->foreignId('idPeriodoAcademico')->constrained('periodo_academicos');
-            $table->integer('ciclo');
-            $table->date('fechaMatricula');
+            $table->integer('ciclo')->default(1);
+            $table->date('fechaMatricula')->default(now());
             $table->timestamps();
         });
     }

@@ -44,12 +44,6 @@ class OrientacionVocacionalResource extends Resource
                 Forms\Components\DateTimePicker::make('fecha_inicio')
                     ->maxDate(now())
                     ->required(),
-                Forms\Components\Select::make('estado')
-                    ->options([
-                    'E' => 'En Proceso',
-                    'F' => 'Finalizado',
-                ])
-                    ->required(),
             ]);
     }
 
@@ -60,13 +54,12 @@ class OrientacionVocacionalResource extends Resource
                 Tables\Columns\TextColumn::make('campoInteres.nombCampoInteres')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('estudiante.nombres')
+                Tables\Columns\TextColumn::make('postulante.names')
                     ->label('Estudiante')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('fecha_inicio')
+                Tables\Columns\TextColumn::make('fechaInicio')
                     ->dateTime()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('estado'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Fecha de Creacion')
                     ->dateTime()

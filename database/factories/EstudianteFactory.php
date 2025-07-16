@@ -23,7 +23,7 @@ class EstudianteFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'telefono' => $this->faker->phoneNumber,
             'genero' => $this->faker->randomElement(['M', 'F']),
-            'fecha_nacimiento' => $this->faker->date('Y-m-d', '-18 years'),
+            'fechaNacimiento' => $this->faker->date('Y-m-d', '-18 years'),
         ];
     }
 }

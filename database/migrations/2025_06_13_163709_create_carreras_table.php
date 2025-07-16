@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('idFacultad')->constrained('facultads');
             $table->string('nombCarrera')->unique();
+            $table->integer('precioMatricula');
             $table->string('duracion');
             $table->timestamps();
         });

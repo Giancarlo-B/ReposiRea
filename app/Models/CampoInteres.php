@@ -9,6 +9,6 @@ class CampoInteres extends Model
     protected $fillable = ['nombCampoInteres'];
     public function orientacionVocacional()
     {
-        return $this->hasMany(OrientacionVocacional::class, 'idCampoInteres');
+        return $this->hasMany(OrientacionVocacional::class, 'idCampoInteres','id');
     }
 }
